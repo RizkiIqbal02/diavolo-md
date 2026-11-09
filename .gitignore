@@ -5,7 +5,7 @@ node_modules/
 session/
 session_voip/
 # storage/
-database/
+# database/
 temp/
 tmp/
 

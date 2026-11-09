@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "intervalMs": 21600000,
+  "intervalStr": "6h",
+  "lastBackup": "2026-11-06T22:00:07.421Z",
+  "backupCount": 378,
+  "target": "group",
+  "targetChatId": "120363428497468394@g.us"
+}
