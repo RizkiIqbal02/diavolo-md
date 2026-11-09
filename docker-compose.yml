@@ -1,28 +1,30 @@
+name: diavolo-md
+
 services:
   bot:
     build:
       context: .
       dockerfile: Dockerfile
-
     image: diavolo-md:latest
     container_name: diavolo-md
-
     restart: unless-stopped
     init: true
-
+    stop_grace_period: 30s
     environment:
       NODE_ENV: production
-      TZ: Asia/Jakarta
-
+      TZ: Asia/Makassar
+      BOT_INTERNAL_API_PORT: "3600"
+      MEDIA_SERVER_PORT: "3600"
+      MEDIA_PUBLIC_URL: "${MEDIA_PUBLIC_URL:-http://localhost:3600}"
     volumes:
-      - ./session:/app/session
-      - ./session_voip:/app/session_voip
+      - ./config.js:/app/config.js
+      - ./storage:/app/storage
       - ./database:/app/database
       - ./data:/app/data
-      - ./storage:/app/storage
-
-    stop_grace_period: 30s
-
+      - ./assets:/app/assets
+      - ./bin:/app/bin
+    ports:
+      - "3600:3600"
     logging:
       driver: json-file
       options:

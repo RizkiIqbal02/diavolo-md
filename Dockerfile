@@ -1,24 +1,31 @@
+FROM node:22-bookworm-slim
 
-FROM node:24-bookworm-slim
-
-WORKDIR /app
-
-ENV NODE_ENV=production
-ENV TZ=Asia/Jakarta
+ENV NODE_ENV=production \
+    TZ=Asia/Makassar \
+    npm_config_update_notifier=false \
+    npm_config_fund=false
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates \
+    curl \
+    ffmpeg \
+    fontconfig \
+    fonts-dejavu-core \
+    tzdata \
     python3 \
     make \
     g++ \
-    ffmpeg \
-    tesseract-ocr \
-    ca-certificates \
-    && rm -rf /var/lib/apt/lists/*
+ && rm -rf /var/lib/apt/lists/*
 
-COPY package*.json ./
+WORKDIR /app
 
-RUN npm ci --omit=dev
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev --no-audit --no-fund
 
 COPY . .
+
+RUN mkdir -p storage database temp tmp bin
+
+EXPOSE 3600
 
 CMD ["npm", "start"]
