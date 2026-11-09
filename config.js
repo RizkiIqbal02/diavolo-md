@@ -103,7 +103,7 @@ const config = {
       { name: "GoPay", number: "08987012169", holder: "Sullivan" },
     ],
     banks: [],
-    customText: "https://qu.ax/O3FBW",
+    customText: "https://api-sullivan-s3.sullifun.my.id/uploads/qris.jpg",
   },
   donasi: {
     payment: [
