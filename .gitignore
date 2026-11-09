@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# WhatsApp auth / runtime state
+session/
+session_voip/
+# storage/
+database/
+temp/
+tmp/
+
+# Runtime databases & caches
+data/*.db
+data/*.db-*
+data/quizbattle.json
+data/tiktok-audio-cache.json
+
+# Local config & secrets
+# config.js
+# test-tc.mjs
+.env
+.env.*
+
+# Logs & backups
+*.log
+*.bak
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
