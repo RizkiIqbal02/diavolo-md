@@ -10,10 +10,10 @@ temp/
 tmp/
 
 # Runtime databases & caches
-data/*.db
-data/*.db-*
-data/quizbattle.json
-data/tiktok-audio-cache.json
+# data/*.db
+# data/*.db-*
+# data/quizbattle.json
+# data/tiktok-audio-cache.json
 
 # Local config & secrets
 # config.js
