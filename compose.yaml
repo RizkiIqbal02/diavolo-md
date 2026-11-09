@@ -1,0 +1,30 @@
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    image: diavolo-md:latest
+    container_name: diavolo-md
+
+    restart: unless-stopped
+    init: true
+
+    environment:
+      NODE_ENV: production
+      TZ: Asia/Jakarta
+
+    volumes:
+      - ./session:/app/session
+      - ./session_voip:/app/session_voip
+      - ./database:/app/database
+      - ./data:/app/data
+      - ./storage:/app/storage
+
+    stop_grace_period: 30s
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
